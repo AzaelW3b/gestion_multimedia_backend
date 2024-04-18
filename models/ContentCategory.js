@@ -24,7 +24,6 @@ const contentCategorySchema = mongoose.Schema({
         type: String,
     }
 
-
 }, { timestamps: true })
 
 export default mongoose.model('ContentCategory', contentCategorySchema)

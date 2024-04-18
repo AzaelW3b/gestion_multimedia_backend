@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import bcrypt from "bcrypt"
 
 const userSchema = mongoose.Schema({
     name: {
@@ -6,7 +7,12 @@ const userSchema = mongoose.Schema({
         required: true,
         trim: true
     },
-    username: {
+    lastName: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    userName: {
         type: String,
         required: true,
         trim: true,
@@ -18,12 +24,18 @@ const userSchema = mongoose.Schema({
         trim: true,
         unique: true,
     },
+    password: {
+        type: String,
+        required: true,
+        trim: true
+    },
     userType: {
         type: String,
         required: true,
         trim: true,
+        enum: ['admin', 'reader', 'creator'],
+        default: "reader"
     }
-
 
 }, { timestamps: true })
 

@@ -35,7 +35,8 @@ const userSchema = mongoose.Schema({
         trim: true,
         enum: ['admin', 'reader', 'creator'],
         default: "reader"
-    }
+    },
+    
 
 }, { timestamps: true })
 

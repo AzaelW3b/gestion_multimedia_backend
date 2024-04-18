@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const themeSchema = mongoose.Schema({
-    name: {
+    nameTheme: {
         type: String,
         required: true,
         trim: true

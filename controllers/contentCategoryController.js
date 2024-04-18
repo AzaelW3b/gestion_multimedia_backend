@@ -9,7 +9,7 @@ export const getContentCategorys = async (req, res) => {
         res.json(contentCategorys)
     } catch (error) {
         console.log(error)
-        res.statu(500).send('Hubo un error  al obtener las categorias')
+        res.status(500).send('Hubo un error  al obtener las categorias')
     }
 }
 
@@ -49,6 +49,7 @@ export const editCotentCategory = async (req, res) => {
 
     } catch (error) {
         console.log(error)
+        res.status(500).send('Hubo un error al editar la categoria')
     }
 }
 
@@ -63,6 +64,7 @@ export const deleteContentCategory = async (req, res) => {
         res.json({ msg: 'Se elimino la categoria de manera correcta' })
     } catch (error) {
         console.log(error)
+        res.status(500).send('Hubo un error al eliminar la categoria')
     }
 }
 

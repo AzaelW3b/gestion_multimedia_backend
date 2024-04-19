@@ -23,7 +23,8 @@ export const createTheme = async (req, res) => {
         }
 
         const coverImage = req.file ? req.protocol + '://' + req.get('host') + '/' + req.file.path : undefined
-        const newTheme = new Theme({ ...req.body, coverImage })
+        let newTheme = new Theme({ ...req.body, coverImage })
+        newTheme.populate('contentCategoryId')
         await newTheme.save()
         res.json(newTheme)
     } catch (error) {

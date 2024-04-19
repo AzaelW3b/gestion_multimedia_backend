@@ -1,5 +1,5 @@
 import express from "express"
-import { createContent, getContent } from "../controllers/contentController.js"
+import { createContent, getContent, editContent, deleteContent } from "../controllers/contentController.js"
 import multer from "multer"
 
 const router = express.Router()
@@ -18,6 +18,7 @@ const upload = multer({ storage: storage })
 
 router.get('/', getContent)
 router.post('/', upload.single('urlImage'), createContent)
-
+router.put('/:id', editContent)
+router.delete('/:id', deleteContent)
 
 export default router

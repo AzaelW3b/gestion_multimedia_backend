@@ -7,15 +7,20 @@ import contentCategoryRouter from "./routes/contentCategoryRouter.js"
 import themeRouter from "./routes/themeRouter.js"
 import contentRouter from "./routes/contentRouter.js"
 
+
 const app = express()
 app.use(cors())
+
 dotEnv.config()
 conectarDB()
 app.use(express.json({ extended: true }))
 
-const PORT = process.env.PORT || 5000
 
+
+const PORT = process.env.PORT || 5000
+app.use("/content", contentRouter)
 app.use('/portadas', express.static('portadas'))
+app.use('/contenidos', express.static('contenidos'))
 app.use('/api/user', userRouter)
 app.use('/api/contentCategory', contentCategoryRouter)
 app.use('/api/theme', themeRouter)

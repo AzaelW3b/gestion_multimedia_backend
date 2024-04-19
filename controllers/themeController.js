@@ -2,7 +2,7 @@ import Theme from "../models/Theme.js"
 
 export const getThemes = async (req, res) => {
     try {
-        const themes = await Theme.find({})
+        const themes = await Theme.find({}).populate('contentCategoryId')
         if (themes.length === 0) {
             return res.status(400).json({ msg: 'No hay temáticas registradas' })
         }
